@@ -1,0 +1,16 @@
+
+<Cube>
+    <A>somestuffinhere</A>
+    <B/>
+    <C> More weird 12 things</C>
+    <MdxScripts>
+        <MdxScript>
+            CALCULATE;
+            create member my_member as,
+            create member my_member_2 as,
+        </MdxScript>
+    </MdxScript>
+    <D>There can be more stuff after..</D>
+    <E />
+    <F/>
+</Cube>

@@ -1,0 +1,136 @@
+[
+  {
+    "type": "calculated_member",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "mdx_content",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "calculate_keyword",
+          "named": true
+        },
+        {
+          "type": "calculated_member",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mdx_script",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "mdx_content",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "program",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "tag_with_content",
+          "named": true
+        },
+        {
+          "type": "tag_without_content",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tag_with_content",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "mdx_script",
+          "named": true
+        },
+        {
+          "type": "tag_with_content",
+          "named": true
+        },
+        {
+          "type": "tag_without_content",
+          "named": true
+        },
+        {
+          "type": "text_content",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tag_without_content",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "/>",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "</",
+    "named": false
+  },
+  {
+    "type": "</MdxScript>",
+    "named": false
+  },
+  {
+    "type": "<MdxScript>",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": "as",
+    "named": false
+  },
+  {
+    "type": "calculate_keyword",
+    "named": true
+  },
+  {
+    "type": "text_content",
+    "named": true
+  }
+]

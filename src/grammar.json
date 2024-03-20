@@ -1,0 +1,213 @@
+{
+  "name": "cubemdx",
+  "rules": {
+    "program": {
+      "type": "REPEAT",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "tag_with_content"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "tag_without_content"
+          }
+        ]
+      }
+    },
+    "tag_with_content": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[A-Za-z][A-Za-z0-9]*"
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "mdx_script"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "tag_with_content"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "tag_without_content"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "text_content"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "</"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[A-Za-z][A-Za-z0-9]*"
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        }
+      ]
+    },
+    "tag_without_content": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[A-Za-z][A-Za-z0-9]*"
+        },
+        {
+          "type": "STRING",
+          "value": "/>"
+        }
+      ]
+    },
+    "calculate_keyword": {
+      "type": "PATTERN",
+      "value": "calculate",
+      "flags": "i"
+    },
+    "_createmember_keyword": {
+      "type": "PATTERN",
+      "value": "create member",
+      "flags": "i"
+    },
+    "_scope_keyword": {
+      "type": "PATTERN",
+      "value": "scope",
+      "flags": "i"
+    },
+    "_end_scope_keyword": {
+      "type": "PATTERN",
+      "value": "end scope",
+      "flags": "i"
+    },
+    "text_content": {
+      "type": "PATTERN",
+      "value": "[^<]+"
+    },
+    "mdx_content": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "calculate_keyword"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": ";"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "calculated_member"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "calculated_member": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_createmember_keyword"
+        },
+        {
+          "type": "PATTERN",
+          "value": ".*"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "as"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": ","
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "mdx_script": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "<MdxScript>"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "mdx_content"
+        },
+        {
+          "type": "STRING",
+          "value": "</MdxScript>"
+        }
+      ]
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}
