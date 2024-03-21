@@ -39,6 +39,7 @@ module.exports = grammar({
       optional(';'),
       repeat(
         choice($.calculated_member,
+               $.scope_statement,
         )
       ),
       //repeat(
@@ -49,6 +50,7 @@ module.exports = grammar({
       //),
 
     ),
+    
     calculated_member: $ =>
       seq(
         $._createmember_keyword,
@@ -56,6 +58,40 @@ module.exports = grammar({
         optional('as'),
         optional(','),
       ),
+
+        scope_begin: $ => seq(
+      /scope/i,
+      "(",
+      $.scope_condition,
+      ");",
+    ),
+    scope_end: $ => seq(
+      /end scope/i,
+      ";",
+    ),
+
+    scope_condition: $ =>repeat1(
+      seq(
+        $.member_expression,
+        optional(","),
+      ),
+    ),
+    scope_this: $ => seq(
+      /this/i,
+      '=',
+      $.member_expression,
+      ';',
+    ),
+
+    scope_statement: $ => seq(
+      $.scope_begin,
+      choice(
+        $.scope_statement,
+        $.scope_this,
+      ),
+      $.scope_end,
+    ),
+
 
     member_expression: $ => seq(
       optional(/\[?(\w+)\]?\./),
