@@ -105,24 +105,10 @@ module.exports = grammar({
     numeric_value: $ => /[0-9]+/,
 
     member_expression: $ => seq(
-      optional(/\[?(\w+)\]?\./),
-      optional(/\[?(\w+)\]?\./),
-      optional(/\[?(\w+)\]?\./),
-      optional(/\[?(\w+)\]?\./),
-      optional(/\[?(\w+)\]?\./),
-      optional(/\[?(\w+)\]?\./),
-      optional(/\[?(\w+)\]?\./),
-      /\[?[a-zA-Z][A-z0-9 ]+/,
+      optional(/(\[?(\w+)\]?\.)/),
+      /(\[?[a-zA-Z][A-z0-9 ]+)/,
       ///\[?([A-z]{1}[A-z0-9 ]\w+)\]?/,
-      optional(/.\&\[([A-z0-9])+\]/),
-      optional(/.\&\[([A-z0-9])+\]/),
-      optional(/.\&\[([A-z0-9])+\]/),
-      optional(/.\&\[([A-z0-9])+\]/),
-      optional(/.\&\[([A-z0-9])+\]/),
-
-      optional(/.\&\[([A-z0-9])+\]/),
-      optional(/.\&\[([A-z0-9])+\]/),
-      optional(/.\&\[([A-z0-9])+\]/),
+      optional(/(\.\&\[[0-9]+\])/),
       //optional(/\.&\[?(\w+)\]?\./),
     ),
 
