@@ -10,7 +10,7 @@
             create member my_member_2 as,
             create member my.test.asdf as,
 
-            scope([asdf].&[123]);
+            scope(asdfasd[f].&[123]);
                 this = a23;
             end scope;
 
