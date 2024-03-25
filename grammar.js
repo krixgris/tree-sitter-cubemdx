@@ -106,7 +106,11 @@ module.exports = grammar({
 
     member_expression: $ => seq(
       optional(/(\[?(\w+)\]?\.)/),
-      /(\[?[a-zA-Z][A-z0-9 ]+)/,
+      optional(/(\[?(\w+)\]?\.)/),
+      optional(/(\[?(\w+)\]?\.)/),
+      optional(/(\[?(\w+)\]?\.)/),
+      optional(/(\[?(\w+)\]?\.)/),
+      /(\[?[a-zA-Z][A-z0-9 ]+\]?)/,
       ///\[?([A-z]{1}[A-z0-9 ]\w+)\]?/,
       optional(/(\.\&\[[0-9]+\])/),
       //optional(/\.&\[?(\w+)\]?\./),

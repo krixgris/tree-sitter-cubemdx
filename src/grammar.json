@@ -334,8 +334,56 @@
           ]
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "(\\[?(\\w+)\\]?\\.)"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "(\\[?(\\w+)\\]?\\.)"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "(\\[?(\\w+)\\]?\\.)"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "(\\[?(\\w+)\\]?\\.)"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "PATTERN",
-          "value": "(\\[?[a-zA-Z][A-z0-9 ]+)"
+          "value": "(\\[?[a-zA-Z][A-z0-9 ]+\\]?)"
         },
         {
           "type": "CHOICE",

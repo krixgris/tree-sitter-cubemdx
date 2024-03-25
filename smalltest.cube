@@ -14,7 +14,7 @@
                 this = a23;
             end scope;
 
-            scope(my.member.[asdf]);
+            scope([my.member].[asdf].&[123]);
                 this = 23;
             end scope;
 
