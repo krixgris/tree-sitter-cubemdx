@@ -15,6 +15,25 @@
     }
   },
   {
+    "type": "expression_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "numeric_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "mdx_content",
     "named": true,
     "fields": {},
@@ -128,6 +147,10 @@
           "named": true
         },
         {
+          "type": "scope_statement",
+          "named": true
+        },
+        {
           "type": "scope_this",
           "named": true
         }
@@ -143,7 +166,7 @@
       "required": true,
       "types": [
         {
-          "type": "member_expression",
+          "type": "expression_statement",
           "named": true
         }
       ]
@@ -231,6 +254,10 @@
   },
   {
     "type": "calculate_keyword",
+    "named": true
+  },
+  {
+    "type": "numeric_value",
     "named": true
   },
   {

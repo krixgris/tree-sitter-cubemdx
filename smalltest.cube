@@ -8,9 +8,18 @@
             CALCULATE;
             create member my_member as,
             create member my_member_2 as,
+
+            scope(my.member.[asdf]);
+                this = a23;
+            end scope;
+
+            scope(my.member.[asdf]);
+                this = 23;
+            end scope;
+
             scope(things);
                 scope(morethings);
-                    this=thing;
+                    this = thing;
                 end scope;
             end scope;
         </MdxScript>

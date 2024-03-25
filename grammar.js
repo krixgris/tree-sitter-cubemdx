@@ -79,19 +79,30 @@ module.exports = grammar({
     scope_this: $ => seq(
       /this/i,
       '=',
-      $.member_expression,
+      $.expression_statement,
       ';',
     ),
 
     scope_statement: $ => seq(
       $.scope_begin,
       choice(
-        //$.scope_statement,
+        $.scope_statement,
         $.scope_this,
       ),
       $.scope_end,
     ),
 
+
+    expression_statement: $ => seq(
+      repeat1(
+        choice(
+          $.member_expression,
+          $.numeric_value,
+        ),
+      ),
+    ),
+
+    numeric_value: $ => /[0-9]+/,
 
     member_expression: $ => seq(
       optional(/\[?(\w+)\]?\./),

@@ -259,7 +259,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "member_expression"
+          "name": "expression_statement"
         },
         {
           "type": "STRING",
@@ -279,6 +279,10 @@
           "members": [
             {
               "type": "SYMBOL",
+              "name": "scope_statement"
+            },
+            {
+              "type": "SYMBOL",
               "name": "scope_this"
             }
           ]
@@ -288,6 +292,31 @@
           "name": "scope_end"
         }
       ]
+    },
+    "expression_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "member_expression"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "numeric_value"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "numeric_value": {
+      "type": "PATTERN",
+      "value": "[0-9]+"
     },
     "member_expression": {
       "type": "SEQ",
