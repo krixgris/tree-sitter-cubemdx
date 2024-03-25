@@ -138,6 +138,10 @@
               {
                 "type": "SYMBOL",
                 "name": "calculated_member"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "scope_statement"
               }
             ]
           }
@@ -178,6 +182,110 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "scope_begin": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "scope",
+          "flags": "i"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "scope_condition"
+        },
+        {
+          "type": "STRING",
+          "value": ");"
+        }
+      ]
+    },
+    "scope_end": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "end scope",
+          "flags": "i"
+        },
+        {
+          "type": "STRING",
+          "value": ";"
+        }
+      ]
+    },
+    "scope_condition": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "member_expression"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "scope_this": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "this",
+          "flags": "i"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "member_expression"
+        },
+        {
+          "type": "STRING",
+          "value": ";"
+        }
+      ]
+    },
+    "scope_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "scope_begin"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "scope_this"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "scope_end"
         }
       ]
     },

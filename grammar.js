@@ -39,7 +39,7 @@ module.exports = grammar({
       optional(';'),
       repeat(
         choice($.calculated_member,
-               $.scope_statement,
+          $.scope_statement,
         )
       ),
       //repeat(
@@ -50,7 +50,7 @@ module.exports = grammar({
       //),
 
     ),
-    
+
     calculated_member: $ =>
       seq(
         $._createmember_keyword,
@@ -59,7 +59,7 @@ module.exports = grammar({
         optional(','),
       ),
 
-        scope_begin: $ => seq(
+    scope_begin: $ => seq(
       /scope/i,
       "(",
       $.scope_condition,
@@ -70,7 +70,7 @@ module.exports = grammar({
       ";",
     ),
 
-    scope_condition: $ =>repeat1(
+    scope_condition: $ => repeat1(
       seq(
         $.member_expression,
         optional(","),
@@ -86,7 +86,7 @@ module.exports = grammar({
     scope_statement: $ => seq(
       $.scope_begin,
       choice(
-        $.scope_statement,
+        //$.scope_statement,
         $.scope_this,
       ),
       $.scope_end,

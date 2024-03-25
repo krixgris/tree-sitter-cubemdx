@@ -8,6 +8,11 @@
             CALCULATE;
             create member my_member as,
             create member my_member_2 as,
+            scope(things);
+                scope(morethings);
+                    this=thing;
+                end scope;
+            end scope;
         </MdxScript>
     </MdxScript>
     <D>There can be more stuff after..</D>
